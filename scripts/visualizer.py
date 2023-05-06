@@ -57,6 +57,19 @@ def plot_box(df: pd.DataFrame, x_col: str, title: str) -> None:
     plt.xticks(rotation=75, fontsize=14)
     plt.show()
 
+def legitbar(df: pd.DataFrame, x_col: str, y_col: str, title: str, leftx: int, rightx:int):
+    sns.set(rc={'figure.figsize':(5.0,2.8)})
+    sns.set_palette("coolwarm")
+    sns.set_style("white")
+    ax = sns.barplot(data = df, x=x_col , y= y_col , ci=None)
+    ax.set_xlim(left=leftx, right=rightx)
+    sns.despine(top=True, left=True, bottom=True)
+    plt.ylabel("", size=10)
+    plt.xlabel("", size=10)
+    plt.title(title, size=15)
+    ax.tick_params(bottom=False)
+    ax.tick_params(left=False)    
+
 
 def plot_box_multi(df: pd.DataFrame, x_col: str, y_col: str, title: str) -> None:
     plt.figure(figsize=(12, 7))
