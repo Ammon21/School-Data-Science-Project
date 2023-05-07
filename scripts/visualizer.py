@@ -43,11 +43,17 @@ def plot_bar(df: pd.DataFrame, x_col: str, y_col: str, title: str, xlabel: str, 
 
 
 def plot_heatmap(df: pd.DataFrame, title: str, cbar=False) -> None:
-    plt.figure(figsize=(12, 7))
-    sns.heatmap(df, annot=True, cmap='viridis', vmin=0,
-                vmax=1, fmt='.2f', linewidths=.7, cbar=cbar)
+    plt.figure(figsize=(4, 5))
+    sns.heatmap(df, annot=True, cmap='Purples', vmin=0, vmax=1, fmt='.2f', linewidths=.7, cbar=cbar)
     plt.title(title, size=18, fontweight='bold')
     plt.show()
+
+def legit_heat(t: pd.DataFrame, lim1: int, lim2:int, h:int):
+    plt.figure(figsize=(h, 2))
+    sns.heatmap(t, annot=True, cmap='Blues', vmin=lim1, vmax=lim2, fmt='.2f', linewidths=.5, cbar = False)
+    sns.despine(top=False, left=True, bottom=True) 
+    sns.set_style("white")
+    plt.ylabel("", size=10) 
 
 
 def plot_box(df: pd.DataFrame, x_col: str, title: str) -> None:
@@ -69,6 +75,9 @@ def legitbar(df: pd.DataFrame, x_col: str, y_col: str, title: str, leftx: int, r
     plt.title(title, size=15)
     ax.tick_params(bottom=False)
     ax.tick_params(left=False)    
+    xlocs, xlabs = plt.xticks()
+    xlocs=[i+1 for i in range(0,10)]
+    xlabs=[i/2 for i in range(0,10)]
 
 
 def plot_box_multi(df: pd.DataFrame, x_col: str, y_col: str, title: str) -> None:
