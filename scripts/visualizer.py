@@ -48,9 +48,9 @@ def plot_heatmap(df: pd.DataFrame, title: str, cbar=False) -> None:
     plt.title(title, size=18, fontweight='bold')
     plt.show()
 
-def legit_heat(t: pd.DataFrame, lim1: int, lim2:int, h:int):
+def legit_heat(t: pd.DataFrame, lim1: int, lim2:int, h:int, color:str):
     plt.figure(figsize=(h, 2))
-    sns.heatmap(t, annot=True, cmap='Blues', vmin=lim1, vmax=lim2, fmt='.2f', linewidths=.5, cbar = False)
+    sns.heatmap(t, annot=True, cmap=color, vmin=lim1, vmax=lim2, fmt='.2f', linewidths=.5, cbar = False)
     sns.despine(top=False, left=True, bottom=True) 
     sns.set_style("white")
     plt.ylabel("", size=10) 
