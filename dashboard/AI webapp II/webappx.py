@@ -1,8 +1,10 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import pickle
+import math
 
-
+st.header('Admission Office AI Test System')
 
 name = st.text_input("Whats your name?")
 
@@ -76,7 +78,7 @@ math = st.number_input('What is your maths grade of the previous semester?')
 english = st.number_input('What is your english grade of the previous semester?')
 
 birth = st.radio(
-    "What\'s your favorite movie genre",
+    "What\'s your birth order",
     ('First child', 'middle child', 'last child'))
 
 fx = 0
@@ -157,7 +159,17 @@ elif conductx == 'B':
 else:
      conduct = 1
 
-st.write(conduct)               
+st.write(conduct)  
 
 
-#['conduct', 'age', 'gender', 'pob', 'tutor/makeup', 'grade', 'admission','mother_tongue', 'maths', 'english', 'first child', 'last child','middle child', 'authoritarian', 'authoritative', 'permissive','private', 'public', 'service', 'both', 'single']
+model = pickle.load(open('../../model/new.pkl', 'rb'))
+
+
+x = model.predict([[conduct, age, sex, place, makeup, grade, adm,mother,math,english, fx,fl,fm,atx,avx,per,private,public,service,both,single]])
+
+message = name + "\'s potential GPA in this academy will be approximately " + str(int(x[0]))
+
+st.header(message)
+
+
+
