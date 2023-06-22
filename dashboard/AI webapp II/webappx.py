@@ -4,31 +4,76 @@ import pandas as pd
 
 
 
-name = st.text_input("Whats your name??")
+name = st.text_input("Whats your name?")
 
 age = st.slider('How old are you?', 10, 20, 1)
 
 option = st.selectbox('Gender',
     ('Male', 'Female'))
 
+sex = 0
+
+if option == 'Female':
+     sex = 0
+else:
+     sex = 1
+
+sex     
+
 pob = st.selectbox('Place of Birth',
     ('Ethiopia', 'Foriegn soil'))
+
+place = 0
+
+if pob == 'Ethiopia':
+     place = 0
+else:
+     place = 1
+
+place
 
 tutor = st.selectbox('Do you take any makeup class or tutoring',
     ('yes', 'no'))
 
-grade = st.selectbox('What grade are you in?',
-    (5, 6, 7, 8, 9,10, 11, 12))
+
+makeup = 0
+
+if tutor == 'yes':
+     makeup = 1
+else:
+     makeup = 0
+
+makeup
+
+grade = st.slider('what grade are you in?' , 5, 12, 1)
 
 mothertongue = st.selectbox('what is your first language (mother tongue)',
-    ('ethiopian lang', 'foriegn language'))
+    ('ethiopian language', 'foriegn language'))
 
-mothertongue = st.selectbox('Admission type inquiry',
+mother = 0
+
+if mothertongue == 'ethiopian language':
+     mother = 0
+else:
+     mother = 1
+
+mother
+
+admission = st.selectbox('Admission type inquiry',
     ('paid', 'scholarship'))
 
-math = st.number_input('What is your maths grade of the previous semester')
+adm = 0
 
-english = st.number_input('What is your english grade of the previous semester')
+if admission == 'paid':
+     adm = 0
+else:
+     adm = 1
+
+adm   
+
+math = st.number_input('What is your maths grade of the previous semester?')
+
+english = st.number_input('What is your english grade of the previous semester?')
 
 birth = st.radio(
     "What\'s your favorite movie genre",
@@ -52,13 +97,67 @@ parenting = st.radio(
     "How do you describe your relationship with your parents (Parrenting Style)",
     ('Authoritative', 'Authoritarian', 'Permissive', 'Uninvolved'))
 
-transport_type = st.selectbox('What is your transport type',
+avx = 0
+atx = 0
+per = 0
+
+if   parenting == 'Authoritative':
+     avx = 1
+elif parenting == 'Authoritarian':
+     atx = 1
+elif parenting == 'Permissive':
+     per = 1  
+
+st.write(avx,atx,per)       
+
+transport = st.selectbox('What is your transport type',
     ('Private Car', 'Public Tranportation', 'Service', 'on Foot'))
 
+private = 0
+public = 0
+service = 0
 
-birth = st.radio(
+if   transport == 'Private Car':
+     private = 1
+elif transport == 'Public Tranportation':
+     public = 1
+elif transport == 'Service':
+     service = 1  
+
+st.write(private,public,service)  
+
+
+
+
+guardian = st.radio(
     "Do you live with both parents",
     ('yes', 'no'))
+
+both = 0
+single = 0
+
+if   guardian == 'yes':
+     both = 1
+elif guardian == 'no':
+     single = 1
+
+st.write(both,single)
+
+
+conductx = st.radio(
+    "Conduct at previous school",
+    ('A', 'B', 'C'))
+
+conduct = 0
+
+if conductx == 'A':
+     conduct = 3
+elif conductx == 'B':
+     conduct = 2
+else:
+     conduct = 1
+
+st.write(conduct)               
 
 
 #['conduct', 'age', 'gender', 'pob', 'tutor/makeup', 'grade', 'admission','mother_tongue', 'maths', 'english', 'first child', 'last child','middle child', 'authoritarian', 'authoritative', 'permissive','private', 'public', 'service', 'both', 'single']
