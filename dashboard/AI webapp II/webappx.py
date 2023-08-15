@@ -129,8 +129,6 @@ elif transport == 'Service':
 st.write(private,public,service)  
 
 
-
-
 guardian = st.radio(
     "Do you live with both parents",
     ('yes', 'no'))
